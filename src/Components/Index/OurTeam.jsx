@@ -1,6 +1,6 @@
 import React from "react";
 import vani from "../../assets/Vani.png";
-import aishwarya from "../../assets/aishwarya.png";
+import aishwarya from "../../assets/Aishwarya.png";
 
 const OurTeam = () => {
   return (
