@@ -15,7 +15,7 @@ const Contact = () => {
 
   return (
     <section
-      className="relative min-h-screen h-[135vh] overflow-hidden"
+      className="relative min-h-screen sm:h-[135vh] overflow-hidden"
       style={{
         background:
           "linear-gradient(160deg, #faf7f5 0%, #f3ece8 50%, #e8d8e2 100%)",
@@ -80,7 +80,7 @@ const Contact = () => {
                 icon: <MapPin size={18} />,
                 label: "Location",
                 value:
-                  "Srinidhi Clinic, #6, Sapthagiri, 9th Cross, New Bank Colony, Chunchgatta Main Road, Konanakunte, Bangalore",
+                  "Ground Floor, 64, Bikasipura Main Rd, Paul Chinnappa Layout, Kumaraswamy Layout, Bengaluru, Karnataka 560062",
               },
               {
                 icon: <Phone size={18} />,
@@ -199,7 +199,7 @@ const Contact = () => {
       <img
         src={coach}
         alt="coach"
-        className="absolute bottom-[-40px] left-[-0px] h-[440px] object-contain scale-x-[-1] pointer-events-none"
+        className="absolute sm:visible invisible  bottom-[-40px] left-[-0px] h-[440px] object-contain scale-x-[-1] pointer-events-none"
         style={{ filter: "drop-shadow(4px 0px 12px rgba(91,44,79,0.08))" }}
       />
     </section>
