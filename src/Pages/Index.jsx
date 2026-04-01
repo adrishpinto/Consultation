@@ -5,12 +5,15 @@ import WeProvide from "../Components/Index/WeProvide";
 import OurTeam from "../Components/Index/OurTeam";
 import Contact from "../Components/Index/Contact";
 import Footer from "../Components/Common/Footer";
+import Gallery from "../Components/Index/Gallery";
+
 const Index = () => {
   return (
     <div>
       <Navbar />
       <Banner />
       <WeProvide />
+      <Gallery />
       <OurTeam />
       <Contact />
     </div>

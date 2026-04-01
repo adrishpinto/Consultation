@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 216 313" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g transform="matrix(1,0,0,1,-1058.346182,-209.5)">
+        <g transform="matrix(0.75,0,0,0.75,0,3.5)">
+            <g transform="matrix(0.999817,-0.019149,0.019149,0.999817,1037.334637,-38.6246)">
+                <path d="M492,388C492,388 415.917,342.721 377,409C377,409 352.053,476.281 446,501L425,535C425,535 452.42,547.187 484,535" style="fill:none;stroke:rgb(117,21,134);stroke-width:16.67px;"/>
+            </g>
+        </g>
+        <g transform="matrix(0.75,0,0,0.75,0,3.5)">
+            <g transform="matrix(1,0,0,1,1053,-39)">
+                <ellipse cx="499.5" cy="338.5" rx="15.5" ry="16.5" style="fill:rgb(117,21,134);stroke:rgb(117,21,134);stroke-width:16.67px;"/>
+            </g>
+        </g>
+        <g transform="matrix(0.75,0,0,0.75,0,3.5)">
+            <g transform="matrix(1,0,0,1,1046,-47)">
+                <path d="M567,502L588,531C588,531 559.77,546.148 515,520C515,520 442.18,472.623 509,400C509,400 586.99,337.427 633,400C633,400 665.3,476.017 567,502Z" style="fill:none;stroke:rgb(117,21,134);stroke-width:16.67px;"/>
+            </g>
+        </g>
+        <g transform="matrix(0.75,0,0,0.75,0,3.5)">
+            <g transform="matrix(1,0,0,1,1046,-46)">
+                <path d="M518,417C518,417 550.639,469.164 519,495" style="fill:none;stroke:rgb(117,21,134);stroke-width:16.67px;"/>
+            </g>
+        </g>
+        <g transform="matrix(0.75,0,0,0.75,0,3.5)">
+            <g transform="matrix(0.712134,0,0,0.712134,1314.316374,126.809476)">
+                <g transform="matrix(173.109748,0,0,173.109748,536.323823,708)">
+                </g>
+                <text x="147px" y="708px" style="font-family:'HelveticaNeue-Bold', 'Helvetica Neue';font-weight:700;font-size:173.11px;fill:rgb(117,21,134);stroke:rgb(117,21,134);stroke-width:1.87px;stroke-linecap:butt;stroke-miterlimit:2;">AIV<tspan x="417.744px " y="708px ">A</tspan></text>
+            </g>
+        </g>
+        <g transform="matrix(0.75,0,0,0.75,0,3.5)">
+            <g transform="matrix(0.837255,0,0,0.837255,1106.025259,81.988077)">
+                <g transform="matrix(65.826331,0,0,65.826331,710.995798,714)">
+                </g>
+                <text x="366px" y="714px" style="font-family:'HelveticaNeue', 'Helvetica Neue';font-size:65.826px;fill:rgb(117,21,134);stroke:rgb(117,21,134);stroke-width:1.59px;stroke-linecap:butt;stroke-miterlimit:2;">Counselling</text>
+            </g>
+        </g>
+    </g>
+</svg>

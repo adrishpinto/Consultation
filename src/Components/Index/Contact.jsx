@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import coach from "../../assets/coach.png";
+
 import {
   Instagram,
   Globe,
@@ -12,6 +12,29 @@ import {
 
 const Contact = () => {
   const [focused, setFocused] = useState(null);
+
+  // ✅ NEW: form state
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  // ✅ NEW: submit handler
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (!formData.name || !formData.email || !formData.message) {
+      alert("Please fill all fields");
+      return;
+    }
+
+    const message = `Name: ${formData.name}%0AEmail: ${formData.email}%0AMessage: ${formData.message}`;
+
+    const whatsappURL = `https://wa.me/917259755476?text=${message}`;
+
+    window.open(whatsappURL, "_blank");
+  };
 
   return (
     <section
@@ -145,19 +168,29 @@ const Contact = () => {
               Fill in the form and we'll get back to you shortly.
             </p>
 
-            <form className="space-y-5">
+            {/* ✅ form updated */}
+            <form className="space-y-5" onSubmit={handleSubmit}>
               <div className="flex gap-4">
                 {["Name", "Email Address"].map((ph, i) => (
                   <div key={ph} className="w-1/2 relative">
                     <input
                       type={i === 1 ? "email" : "text"}
                       placeholder={ph}
+                      value={i === 0 ? formData.name : formData.email}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          [i === 0 ? "name" : "email"]: e.target.value,
+                        })
+                      }
                       onFocus={() => setFocused(ph)}
                       onBlur={() => setFocused(null)}
                       className="w-full rounded-2xl px-4 py-3 text-[14px] outline-none transition-all duration-200"
                       style={{
                         background: "#f5ede8",
-                        border: `2px solid ${focused === ph ? "#8A6880" : "#ddd0ca"}`,
+                        border: `2px solid ${
+                          focused === ph ? "#8A6880" : "#ddd0ca"
+                        }`,
                         color: "#5B2C4F",
                       }}
                     />
@@ -168,12 +201,18 @@ const Contact = () => {
               <textarea
                 placeholder="Your Message"
                 rows={5}
+                value={formData.message}
+                onChange={(e) =>
+                  setFormData({ ...formData, message: e.target.value })
+                }
                 onFocus={() => setFocused("msg")}
                 onBlur={() => setFocused(null)}
                 className="w-full resize-none rounded-2xl px-4 py-3 text-[14px] outline-none transition-all duration-200"
                 style={{
                   background: "#f5ede8",
-                  border: `2px solid ${focused === "msg" ? "#8A6880" : "#ddd0ca"}`,
+                  border: `2px solid ${
+                    focused === "msg" ? "#8A6880" : "#ddd0ca"
+                  }`,
                   color: "#5B2C4F",
                 }}
               />
@@ -194,14 +233,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-
-      {/* Coach image bottom-left */}
-      <img
-        src={coach}
-        alt="coach"
-        className="absolute sm:visible invisible  bottom-[-40px] left-[-0px] h-[440px] object-contain scale-x-[-1] pointer-events-none"
-        style={{ filter: "drop-shadow(4px 0px 12px rgba(91,44,79,0.08))" }}
-      />
     </section>
   );
 };

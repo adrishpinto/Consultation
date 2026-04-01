@@ -39,10 +39,6 @@ const WeProvide = () => {
       className="py-28 px-6"
       style={{ fontFamily: "'DM Sans', sans-serif" }}
     >
-      <p className="text-center text-[11px] tracking-[0.18em] uppercase text-[#C6AFC3] mb-4">
-        Our services
-      </p>
-
       <h2
         className="text-center text-[#5B2C4F] mb-4"
         style={{

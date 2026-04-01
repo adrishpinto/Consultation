@@ -52,15 +52,15 @@ const OurTeam = () => (
           className="group bg-white hover:bg-[#fdf6fb] transition-colors duration-400 p-12"
           style={{ borderRight: i === 0 ? "1px solid #e0ccd8" : "none" }}
         >
-          <div
+          {/* <div
             className="text-[72px] leading-none mb-8 select-none transition-colors duration-400 text-[#f0e0ec] group-hover:text-[#d4a0c4]"
             style={{ fontFamily: "'Playfair Display', serif", fontWeight: 700 }}
           >
             {num}
-          </div>
+          </div> */}
 
           <div
-            className="w-[84px] h-[84px] rounded-full flex items-center justify-center mb-7 overflow-hidden"
+            className="w-[130px] h-[130px] rounded-full flex items-center justify-center mb-7 overflow-hidden"
             style={{ background: "#f5eaf2", border: "1.5px solid #d4a0c4" }}
           >
             <img

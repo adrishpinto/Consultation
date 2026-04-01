@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/logo.svg";
 
 const NAV_LINKS = ["Home", "Services", "About Us", "Contact"];
 
