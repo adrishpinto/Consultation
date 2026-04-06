@@ -29,7 +29,7 @@ const services = [
   {
     num: "06",
     title: "Habit Reversal Therapy",
-    body: "A structured approach to replace unwanted habits with healthier alternatives.",
+    body: "A structured approach to help individuals manage tics by increasing awareness and replacing them with controlled responses",
   },
 ];
 

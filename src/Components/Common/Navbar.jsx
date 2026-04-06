@@ -1,232 +1,119 @@
 import React, { useState, useEffect } from "react";
 import logo from "../../assets/logo.svg";
 
-const NAV_LINKS = ["Home", "Services", "About Us", "Contact"];
+const NAV_LINKS = [
+  { label: "Home", id: "home" },
+  { label: "Services", id: "services" },
+  { label: "About Us", id: "about" },
+  { label: "Contact", id: "contact" },
+];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [active, setActive] = useState("Home");
   const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState("home");
 
+  // ✅ Scroll shrink effect
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 20);
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 20);
+    };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // ✅ Scroll spy
+  useEffect(() => {
+    const sections = document.querySelectorAll("section");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(entry.target.id);
+          }
+        });
+      },
+      {
+        rootMargin: "-40% 0px -50% 0px",
+      },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleScrollTo = (id) => {
+    setActive(id);
+    setMenuOpen(false);
+
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Jost:wght@300;400;500&display=swap');
-
-        .navbar {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          z-index: 100;
-          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-          padding: ${scrolled ? "12px 40px" : "20px 40px"};
-          background: ${scrolled ? "rgba(255,255,255,0.85)" : "transparent"};
-          backdrop-filter: ${scrolled ? "blur(14px)" : "none"};
-          border-bottom: ${
-            scrolled
-              ? "1px solid rgba(91, 44, 79, 0.08)"
-              : "1px solid transparent"
-          };
-          box-shadow: ${
-            scrolled ? "0 4px 30px rgba(91, 44, 79, 0.06)" : "none"
-          };
-          box-sizing: border-box;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-        }
-
-        .nav-links {
-          display: flex;
-          gap: 40px;
-          list-style: none;
-          margin: 0;
-          padding: 0;
-        }
-
-        .nav-link {
-          font-family: 'Jost', sans-serif;
-          font-weight: 400;
-          font-size: 13px;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          color: #7a6b74;
-          cursor: pointer;
-          position: relative;
-          padding: 4px 0;
-          transition: color 0.3s ease;
-        }
-
-        .nav-link::after {
-          content: '';
-          position: absolute;
-          bottom: -2px;
-          left: 0;
-          width: 0;
-          height: 1px;
-          background: #5B2C4F;
-          transition: width 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .nav-link:hover,
-        .nav-link.active {
-          color: #5B2C4F;
-        }
-
-        .nav-link:hover::after,
-        .nav-link.active::after {
-          width: 100%;
-        }
-
-        .nav-logo {
-          height: 72px;
-          object-fit: contain;
-          transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .scrolled .nav-logo {
-          height: 52px;
-        }
-
-        /* Mobile hamburger */
-        .hamburger {
-          display: none;
-          flex-direction: column;
-          gap: 5px;
-          cursor: pointer;
-          padding: 4px;
-          background: none;
-          border: none;
-        }
-
-        .hamburger span {
-          display: block;
-          width: 24px;
-          height: 1.5px;
-          background: #5B2C4F;
-          transition: all 0.3s ease;
-          transform-origin: center;
-        }
-
-        .hamburger.open span:nth-child(1) {
-          transform: translateY(6.5px) rotate(45deg);
-        }
-        .hamburger.open span:nth-child(2) {
-          opacity: 0;
-        }
-        .hamburger.open span:nth-child(3) {
-          transform: translateY(-6.5px) rotate(-45deg);
-        }
-
-        .mobile-menu {
-          display: none;
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100vh;
-          background: rgba(255,252,254,0.97);
-          backdrop-filter: blur(20px);
-          z-index: 99;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          gap: 36px;
-          opacity: 0;
-          pointer-events: none;
-          transition: opacity 0.35s ease;
-        }
-
-        .mobile-menu.open {
-          opacity: 1;
-          pointer-events: all;
-        }
-
-        .mobile-link {
-          font-family: 'Cormorant Garamond', serif;
-          font-weight: 300;
-          font-size: 40px;
-          letter-spacing: 0.04em;
-          color: #3d2235;
-          cursor: pointer;
-          transition: color 0.2s ease;
-        }
-
-        .mobile-link:hover {
-          color: #5B2C4F;
-        }
-
-        @media (max-width: 768px) {
-          .nav-links {
-            display: none;
-          }
-          .hamburger {
-            display: flex;
-          }
-          .mobile-menu {
-            display: flex;
-          }
-          .navbar {
-            padding: ${scrolled ? "12px 24px" : "16px 24px"};
-          }
-        }
-      `}</style>
-
-      {/* Main Navbar */}
-      <nav className={`navbar${scrolled ? " scrolled" : ""}`}>
-        <ul className="nav-links">
+      <nav
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 
+        ${scrolled ? "bg-white/80 backdrop-blur-md shadow-sm py-3" : "py-5"}
+        px-6 md:px-10 flex justify-between items-center`}
+      >
+        {/* Desktop */}
+        <ul className="hidden md:flex gap-10">
           {NAV_LINKS.map((link) => (
             <li
-              key={link}
-              className={`nav-link${active === link ? " active" : ""}`}
-              onClick={() => setActive(link)}
+              key={link.id}
+              onClick={() => handleScrollTo(link.id)}
+              className={`cursor-pointer uppercase text-xs tracking-widest transition
+              ${
+                active === link.id
+                  ? "text-purple-800 border-b border-purple-800"
+                  : "text-gray-500 hover:text-purple-800"
+              }`}
             >
-              {link}
+              {link.label}
             </li>
           ))}
         </ul>
 
+        {/* Logo */}
         <img
           src={logo}
           alt="logo"
-          className="nav-logo"
-          style={{ height: scrolled ? 52 : 72 }}
+          className={`transition-all duration-300 ${
+            scrolled ? "h-12" : "h-16"
+          }`}
         />
 
-        {/* Hamburger (mobile) */}
+        {/* Mobile */}
         <button
-          className={`hamburger${menuOpen ? " open" : ""}`}
+          className="md:hidden flex flex-col gap-1"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
         >
-          <span />
-          <span />
-          <span />
+          <span className="w-6 h-[2px] bg-purple-800" />
+          <span className="w-6 h-[2px] bg-purple-800" />
+          <span className="w-6 h-[2px] bg-purple-800" />
         </button>
       </nav>
 
-      {/* Mobile full-screen menu */}
-      <div className={`mobile-menu${menuOpen ? " open" : ""}`}>
-        {NAV_LINKS.map((link) => (
-          <div
-            key={link}
-            className="mobile-link"
-            onClick={() => {
-              setActive(link);
-              setMenuOpen(false);
-            }}
-          >
-            {link}
-          </div>
-        ))}
-      </div>
+      {/* Mobile Menu */}
+      {menuOpen && (
+        <div className="fixed inset-0 bg-white flex flex-col items-center justify-center gap-10 z-40">
+          {NAV_LINKS.map((link) => (
+            <div
+              key={link.id}
+              onClick={() => handleScrollTo(link.id)}
+              className="text-3xl font-light cursor-pointer hover:text-purple-800"
+            >
+              {link.label}
+            </div>
+          ))}
+        </div>
+      )}
     </>
   );
 };

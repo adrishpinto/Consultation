@@ -95,9 +95,8 @@ const Gallery = () => {
 
   return (
     <div
+      className="bg-[#5B2C4F]"
       style={{
-        background:
-          "linear-gradient(160deg,#0a0a0f 0%,#0d0d1a 60%,#0a0a0f 100%)",
         borderRadius: 20,
         padding: "36px 0 28px",
         minHeight: 480,

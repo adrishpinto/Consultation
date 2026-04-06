@@ -16,7 +16,7 @@ const members = [
     num: "02",
     img: aishwarya,
     initials: "AS",
-    role: "Therapist",
+    role: "Psychologist",
     name: "Aishwarya Sathya",
     bio: "Aishwarya offers a grounded, neurodiversity-affirming approach with culturally sensitive care. Her warm, reflective style fosters self-awareness, resilience, and meaningful personal growth.",
     tags: ["Neurodiversity", "Cultural Sensitivity", "Resilience"],
