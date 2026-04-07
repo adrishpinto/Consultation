@@ -6,6 +6,7 @@ import Gallery from "../Components/Index/Gallery";
 import OurTeam from "../Components/Index/OurTeam";
 import Contact from "../Components/Index/Contact";
 import Footer from "../Components/Common/Footer";
+import Gallery2 from "../Components/Index/Gallery2";
 
 const Index = () => {
   return (
@@ -20,8 +21,9 @@ const Index = () => {
       <section id="services">
         <WeProvide />
       </section>
+
       <section id="gallery">
-        <Gallery />
+        <Gallery2 />
       </section>
       <section id="about">
         <OurTeam />
