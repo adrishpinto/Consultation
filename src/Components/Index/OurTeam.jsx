@@ -26,7 +26,7 @@ const members = [
 const OurTeam = () => (
   <section
     style={{ background: "#f7f0f5", fontFamily: "'Jost', sans-serif" }}
-    className="min-h-screen py-20 px-8"
+    className="min-h-screen py-20 sm:px-4 px-8"
   >
     <p className="text-center text-[10px] tracking-[0.3em] uppercase text-[#a07090] font-medium mb-4">
       The people behind your care
