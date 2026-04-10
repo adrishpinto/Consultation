@@ -76,7 +76,7 @@ export default function Slider() {
   const visibleEnd = Math.min(index + perView, total);
 
   return (
-    <div className="w-full p-6 rounded-2xl bg-gradient-to-br from-[#F5D0DF] via-[#EEC4D2] to-[#E8B8CB] mt-20">
+    <div className="w-full p-6 rounded-2xl bg-gradient-to-br from-[#B784A7] via-[#C79BBE] to-[#D1A3C8] mt-20">
       <div className="flex justify-between items-center mb-4">
         <div>
           <h3 className="text-[#8C3A5C] text-xs uppercase tracking-widest">
@@ -138,8 +138,7 @@ export default function Slider() {
       </div>
 
       <p className="text-center text-xs text-[#8C3A5C] mt-2">
-        {String(visibleEnd).padStart(2, "0")} /{" "}
-        {String(total).padStart(2, "0")}
+        {String(visibleEnd).padStart(2, "0")} / {String(total).padStart(2, "0")}
       </p>
 
       {selectedIndex !== null && (
